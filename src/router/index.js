@@ -17,6 +17,8 @@ import administratorInfo from '../components/administratorInfo'
 import roomManage from '../components/roomManage'
 import checkAppointment from '../components/checkAppointment'
 import importTeacher from '../components/importTeacher'
+import addTeacher from '../components/addTeacher'
+import writeTeacher from '../components/writeTeacher'
 
 Vue.use(Router)
 const router = new Router();
@@ -80,8 +82,18 @@ export default new Router({
           component: checkAppointment
         },
         {
-          path: 'importTeacher',
-          component: importTeacher
+          path: 'addTeacher',
+          component: addTeacher,
+          children: [
+            {
+              path: '',
+              component: writeTeacher
+            },
+            {
+              path: 'importTeacher',
+              component: importTeacher
+            }
+          ]
         }
       ]
     },
