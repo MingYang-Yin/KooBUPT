@@ -75,15 +75,23 @@
         if (this.fileList.length === 0){
           this.$message.warning('请上传文件');
         } else {
-          let form = new FormData();
-          form.append('file', this.fileList);
+          /*let form = new FormData();*/
+          var submit = {  //JSON数据		名称-值对
+            "file": this.fileList,
+          }
+          /*form.append('file', this.fileList);*/
+          console.log(this.fileList[0])
+          console.log(submit)
           this.$axios({
             method:"post",
-            url: "/statistical/uploadbug", //需要改成后端URL
-            headers:{
+            url: "http://localhost:8080/user/insertTeachers", //需要改成后端URL
+            /*headers:{
               'Content-type': 'multipart/form-data'
-            },
-            data:form
+            },*/
+            contentType: 'application/json; charset=UTF-8',// 解决415错误
+            /*data:form*/
+            dataType: 'json',
+            data:JSON.stringify(submit),
           }).then(
             res=>{
               this.$message.success('上传成功！');
