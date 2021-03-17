@@ -19,6 +19,8 @@ import checkAppointment from '../components/checkAppointment'
 import importTeacher from '../components/importTeacher'
 import addTeacher from '../components/addTeacher'
 import writeTeacher from '../components/writeTeacher'
+import addClass from '../components/addClass'
+import writeClass from '../components/writeClass'
 
 Vue.use(Router)
 const router = new Router();
@@ -88,6 +90,20 @@ export default new Router({
             {
               path: '',
               component: writeTeacher
+            },
+            {
+              path: 'importTeacher',
+              component: importTeacher
+            }
+          ]
+        },
+        {
+          path: 'addClass',
+          component: addClass,
+          children: [
+            {
+              path: '',
+              component: writeClass
             },
             {
               path: 'importTeacher',
