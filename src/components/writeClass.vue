@@ -138,15 +138,15 @@
             var submit = {  //JSON数据		名称-值对   需要根据后端修改   课程名字，任课老师名字和教工号，开始周，结束周，开始节，结束节，类型
               "name": this.ruleForm.name, //课程名字
               "aid": this.ruleForm.id, //学工号
-              "beginWeek": this.ruleForm.beginWeek, //开始周
+              "startWeek": this.ruleForm.beginWeek, //开始周
               "endWeek": this.ruleForm.endWeek, //结束周
-              "beginClass": this.ruleForm.beginClass, //开始节
-              "endClass": this.ruleForm.endClass, //结束节
-              "type": this.ruleForm.type, //课程类型
+              "startSession": this.ruleForm.beginClass, //开始节
+              "endSession": this.ruleForm.endClass, //结束节
+              "flag": this.ruleForm.type, //课程类型
             }
             this.$axios({
               method: 'post',
-              url: 'http://localhost:8080/user/ManualImport', //需要修改
+              url: 'http://localhost:8080/course/ManualAdd', //需要修改
               contentType: 'application/json; charset=UTF-8',// 解决415错误
               headers:{'Content-Type':'application/json;charset=UTF-8'},
               dataType: 'json',
